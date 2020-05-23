@@ -8,4 +8,4 @@ main :: IO ()
 main = do
     message_file <- head <$> getArgs
     contents <- C.readFile message_file
-    C.writeFile message_file $ C.pack "[ryuichi]\n" <> contents
+    C.writeFile message_file . C.pack . extendCommitMessage . C.unpack $ contents

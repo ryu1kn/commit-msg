@@ -1,6 +1,6 @@
 module Lib
-    ( someFunc
+    ( extendCommitMessage
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+extendCommitMessage :: String -> String
+extendCommitMessage = (++) "[ryuichi]\n"
