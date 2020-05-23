@@ -23,6 +23,8 @@ dependencies:
 
 library:
   source-dirs: src
+  dependencies:
+  - yaml
 
 executables:
   commit-msg-exe:
@@ -35,6 +37,7 @@ executables:
     dependencies:
     - commit-msg
     - bytestring
+    - yaml
 
 tests:
   commit-msg-test:

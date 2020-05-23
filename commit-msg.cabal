@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d0aa3f51596c16e86f760091243a0515e297b6d5c0475ce97322eb34240d375d
+-- hash: da45dfdfbd6e21afcd29363b406f99333861193234b100d4241d19f0484ee817
 
 name:           commit-msg
 version:        0.1.0.0
@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      Config
       Lib
   other-modules:
       Paths_commit_msg
@@ -32,6 +33,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , yaml
   default-language: Haskell2010
 
 executable commit-msg-exe
@@ -45,6 +47,7 @@ executable commit-msg-exe
       base >=4.7 && <5
     , bytestring
     , commit-msg
+    , yaml
   default-language: Haskell2010
 
 test-suite commit-msg-test

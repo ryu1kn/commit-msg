@@ -2,5 +2,8 @@ module Lib
     ( extendCommitMessage
     ) where
 
-extendCommitMessage :: String -> String
-extendCommitMessage = (++) "[ryuichi]\n"
+import Config
+import Data.List
+
+extendCommitMessage :: Config -> String -> String
+extendCommitMessage conf msg = "[" ++ (intercalate "," $ authors conf) ++ "]\n" ++ msg
