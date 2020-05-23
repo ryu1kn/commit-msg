@@ -31,3 +31,9 @@ $ .git/hooks/prepare-commit-msg <commit-message-file> <commit-source> <commit-sh
 ### Prerequisites
 
 * stack
+
+### Test
+
+```sh
+stack test
+```
