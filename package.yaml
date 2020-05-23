@@ -34,6 +34,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - commit-msg
+    - bytestring
 
 tests:
   commit-msg-test:

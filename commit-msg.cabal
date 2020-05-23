@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cf7da2e6d29afbfbfea230aacd42236aec9a3793b2236b213e3860c47df702b2
+-- hash: d0aa3f51596c16e86f760091243a0515e297b6d5c0475ce97322eb34240d375d
 
 name:           commit-msg
 version:        0.1.0.0
@@ -43,6 +43,7 @@ executable commit-msg-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , bytestring
     , commit-msg
   default-language: Haskell2010
 

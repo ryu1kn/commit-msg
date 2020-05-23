@@ -34,6 +34,14 @@ $ .git/hooks/prepare-commit-msg <commit-message-file> <commit-source> <commit-sh
 
 ### Test
 
-```sh
-stack test
-```
+* Unit test
+
+    ```sh
+    stack test
+    ```
+
+* End-to-end test
+
+    ```sh
+    test-e2e/run.sh
+    ```
