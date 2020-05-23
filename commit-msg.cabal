@@ -4,25 +4,24 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6a2bf5572b3fe07a2a811b0f1492c49be6dfcf415c8e454cc5acc932914af548
+-- hash: cf7da2e6d29afbfbfea230aacd42236aec9a3793b2236b213e3860c47df702b2
 
 name:           commit-msg
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/commit-msg#readme>
-homepage:       https://github.com/githubuser/commit-msg#readme
-bug-reports:    https://github.com/githubuser/commit-msg/issues
-author:         Author name here
+description:    Please see the README on GitHub at <https://github.com/ryu1kn/commit-msg#readme>
+homepage:       https://github.com/ryu1kn/commit-msg#readme
+bug-reports:    https://github.com/ryu1kn/commit-msg/issues
+author:         Ryuichi Inagaki
 maintainer:     example@example.com
-copyright:      2020 Author name here
-license:        BSD3
+copyright:      2020 Ryuichi Inagaki
+license:        MIT
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/commit-msg
+  location: https://github.com/ryu1kn/commit-msg
 
 library
   exposed-modules:
