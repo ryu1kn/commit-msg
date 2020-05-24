@@ -9,9 +9,15 @@ import Data.Yaml
 main :: IO ()
 main = do
     message_file <- head <$> getArgs
-    contents <- C.readFile message_file
+    contents <- byteReadFile message_file
     config <- decodeFileEither ".commit-msg.yaml" :: IO (Either ParseException Config)
     either (putStrLn . prettyPrintParseException) (updateFile message_file contents) config
 
-updateFile :: String -> C.ByteString -> Config -> IO ()
-updateFile message_file contents conf = C.writeFile message_file . C.pack . extendCommitMessage conf . C.unpack $ contents
+updateFile :: FilePath -> String -> Config -> IO ()
+updateFile message_file contents conf = byteWriteFile message_file . extendCommitMessage conf $ contents
+
+byteReadFile :: FilePath -> IO String
+byteReadFile = fmap C.unpack . C.readFile
+
+byteWriteFile :: FilePath -> String -> IO ()
+byteWriteFile path = C.writeFile path . C.pack
