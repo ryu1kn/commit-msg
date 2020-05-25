@@ -13,7 +13,7 @@ cp "$project_root/fixtures/sample.txt" "$tmp_file"
 
 (
     cd "$project_root"
-    stack build
+    stack build --allow-different-user
     stack exec -- commit-msg-exe "$tmp_file"
     diff "$tmp_file" "$this_dir/expected.txt"
 )

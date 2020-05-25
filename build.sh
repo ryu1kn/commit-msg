@@ -8,5 +8,5 @@ ls -ld "$(pwd)"
 ls -ld "/github/home"
 mkdir -p /github/home/.stack/
 
-stack test
+stack test --allow-different-user
 test-e2e/run.sh
