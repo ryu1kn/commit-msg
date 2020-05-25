@@ -6,6 +6,7 @@ set -euo pipefail
 id
 ls -ld "$(pwd)"
 ls -ld "/github/home"
+mkdir -p /github/home/.stack/
 
 stack test
 test-e2e/run.sh
