@@ -1,3 +1,5 @@
+![CI](https://github.com/ryu1kn/commit-msg/workflows/CI/badge.svg)
+
 # commit-msg
 
 Pre-populate commit message. Example pre-populated message:
