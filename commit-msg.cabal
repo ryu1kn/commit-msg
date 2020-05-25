@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: da45dfdfbd6e21afcd29363b406f99333861193234b100d4241d19f0484ee817
+-- hash: 5b3283324303381c854ce4e7ac9eb7d580ea981a14db214751eb0cf9be80d3f1
 
 name:           commit-msg
 version:        0.1.0.0
@@ -25,8 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      Config
       Lib
+      Param
   other-modules:
       Paths_commit_msg
   hs-source-dirs:

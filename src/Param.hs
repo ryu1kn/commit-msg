@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveGeneric #-}
 
-module Config (Config(..), Param(..)) where
+module Param (Config(..), Param(..)) where
 
 import GHC.Generics
 import Data.Yaml

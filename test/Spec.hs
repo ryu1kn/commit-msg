@@ -1,5 +1,5 @@
 import Test.Hspec
-import Config
+import Param
 import Lib
 
 main :: IO ()

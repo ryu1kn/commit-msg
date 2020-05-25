@@ -2,7 +2,7 @@ module Lib
     ( extendCommitMessage
     ) where
 
-import Config
+import Param
 import Data.List
 
 extendCommitMessage :: Param -> String -> String

@@ -1,7 +1,7 @@
 module Main where
 
 import Lib
-import Config
+import Param
 import System.Environment (getArgs)
 import qualified Data.ByteString.Char8 as C
 import Data.Yaml
