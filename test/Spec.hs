@@ -9,15 +9,18 @@ spec :: Spec
 spec = describe "commit-msg" $ do
     it "returns original message" $
         let conf = Config Nothing Nothing
-         in extendCommitMessage conf originalMessage `shouldBe` originalMessage
+            param = Param conf Nothing
+         in extendCommitMessage param originalMessage `shouldBe` originalMessage
 
     it "adds author's name" $
         let conf = Config (Just ["ryuichi"]) Nothing
-         in extendCommitMessage conf originalMessage `shouldBe` "[ryuichi]\n" ++ originalMessage
+            param = Param conf Nothing
+         in extendCommitMessage param originalMessage `shouldBe` "[ryuichi]\n" ++ originalMessage
 
     it "adds task ID" $
         let conf = Config (Just ["ryuichi"]) (Just ["24"])
-         in extendCommitMessage conf originalMessage `shouldBe` "[ryuichi][24]\n" ++ originalMessage
+            param = Param conf Nothing
+         in extendCommitMessage param originalMessage `shouldBe` "[ryuichi][24]\n" ++ originalMessage
 
 originalMessage = "\n\
                   \# Please enter the commit message for your changes. Lines starting\n\

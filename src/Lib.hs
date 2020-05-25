@@ -5,11 +5,12 @@ module Lib
 import Config
 import Data.List
 
-extendCommitMessage :: Config -> String -> String
-extendCommitMessage conf msg =
-  let header = prepopulated conf
-      separator = if length header > 0 then "\n" else ""
-   in header ++ separator ++ msg
+extendCommitMessage :: Param -> String -> String
+extendCommitMessage param msg = case commit_source param of
+    Nothing -> let header = prepopulated $ config param
+                   separator = if length header > 0 then "\n" else ""
+                in header ++ separator ++ msg
+    Just _  -> msg
 
 prepopulated :: Config -> String
 prepopulated = (++) <$> (groupValue . authors) <*> (groupValue . task_ids)
