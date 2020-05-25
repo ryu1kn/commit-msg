@@ -8,18 +8,15 @@ main = hspec spec
 spec :: Spec
 spec = describe "commit-msg" $ do
     it "returns original message" $
-        let conf = Config Nothing Nothing
-            param = Param conf Nothing
+        let param = Param (Config Nothing Nothing) Nothing
          in extendCommitMessage param originalMessage `shouldBe` originalMessage
 
     it "adds author's name" $
-        let conf = Config (Just ["ryuichi"]) Nothing
-            param = Param conf Nothing
+        let param = Param (Config (Just ["ryuichi"]) Nothing) Nothing
          in extendCommitMessage param originalMessage `shouldBe` "[ryuichi]\n" ++ originalMessage
 
     it "adds task ID" $
-        let conf = Config (Just ["ryuichi"]) (Just ["24"])
-            param = Param conf Nothing
+        let param = Param (Config (Just ["ryuichi"]) (Just ["24"])) Nothing
          in extendCommitMessage param originalMessage `shouldBe` "[ryuichi][24]\n" ++ originalMessage
 
 originalMessage = "\n\
