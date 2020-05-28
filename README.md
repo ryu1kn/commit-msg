@@ -59,3 +59,7 @@ $ .git/hooks/prepare-commit-msg <commit-message-file> <commit-source> <commit-sh
     ```sh
     test-e2e/run.sh
     ```
+
+## References
+
+* [Aeson: the tutorial](https://artyom.me/aeson)

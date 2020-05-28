@@ -5,7 +5,6 @@ module Param (Config(..), Param(..)) where
 import Control.Applicative
 import Data.Aeson
 import Data.Aeson.Types
-import Data.Foldable
 import Data.Scientific
 import Data.Yaml
 import GHC.Generics
@@ -21,11 +20,11 @@ data Param = Param { config :: Config
 instance FromJSON Config where
     parseJSON = withObject "config" $ \o -> do
         authors <- o .:? "authors" .!= []
-        taskIds <- asum [
-              o .: "task_ids" >>= withArray "array of task IDs" (\arr -> mapM parseTaskId (V.toList arr))
-            , o .:? "task_ids" .!= []
-            ]
+        taskIds <- (o .: "task_ids" >>= parseTaskIds) <|> (o .:? "task_ids" .!= [])
         return $ Config authors taskIds
+
+parseTaskIds :: Value -> Parser [String]
+parseTaskIds = withArray "array of task IDs" (\arr -> mapM parseTaskId (V.toList arr))
 
 parseTaskId :: Value -> Parser String
 parseTaskId (String s) = return (T.unpack s)
