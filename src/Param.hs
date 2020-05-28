@@ -7,7 +7,6 @@ module Param
 where
 
 import           Control.Applicative
-import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Scientific
 import           Data.Yaml
@@ -24,8 +23,7 @@ data Param = Param { config :: Config
 instance FromJSON Config where
     parseJSON = withObject "config" $ \o -> do
         authors <- o .:? "authors" .!= []
-        taskIds <-
-            (o .: "task_ids" >>= parseTaskIds) <|> (o .:? "task_ids" .!= [])
+        taskIds <- (o .: "task_ids" >>= parseTaskIds) <|> return []
         return $ Config authors taskIds
 
 parseTaskIds :: Value -> Parser [String]
