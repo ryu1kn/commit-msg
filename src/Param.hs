@@ -1,15 +1,19 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Param (Config(..), Param(..)) where
+module Param
+    ( Config(..)
+    , Param(..)
+    )
+where
 
-import Control.Applicative
-import Data.Aeson
-import Data.Aeson.Types
-import Data.Scientific
-import Data.Yaml
-import GHC.Generics
-import qualified Data.Text as T
-import qualified Data.Vector as V
+import           Control.Applicative
+import           Data.Aeson
+import           Data.Aeson.Types
+import           Data.Scientific
+import           Data.Yaml
+import           GHC.Generics
+import qualified Data.Text                     as T
+import qualified Data.Vector                   as V
 
 data Config = Config { authors :: [String]
                      , task_ids :: [String] } deriving (Show)
@@ -20,11 +24,13 @@ data Param = Param { config :: Config
 instance FromJSON Config where
     parseJSON = withObject "config" $ \o -> do
         authors <- o .:? "authors" .!= []
-        taskIds <- (o .: "task_ids" >>= parseTaskIds) <|> (o .:? "task_ids" .!= [])
+        taskIds <-
+            (o .: "task_ids" >>= parseTaskIds) <|> (o .:? "task_ids" .!= [])
         return $ Config authors taskIds
 
 parseTaskIds :: Value -> Parser [String]
-parseTaskIds = withArray "array of task IDs" (\arr -> mapM parseTaskId (V.toList arr))
+parseTaskIds =
+    withArray "array of task IDs" (\arr -> mapM parseTaskId (V.toList arr))
 
 parseTaskId :: Value -> Parser String
 parseTaskId (String s) = return (T.unpack s)
