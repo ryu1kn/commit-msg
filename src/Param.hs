@@ -15,10 +15,10 @@ import qualified Data.Text                     as T
 import qualified Data.Vector                   as V
 
 data Config = Config { authors :: [String]
-                     , task_ids :: [String] } deriving (Show)
+                     , taskIds :: [String] } deriving (Show)
 
 data Param = Param { config :: Config
-                   , commit_source :: Maybe String } deriving (Show)
+                   , commitSource :: Maybe String } deriving (Show)
 
 instance FromJSON Config where
     parseJSON = withObject "config" $ \o -> do
