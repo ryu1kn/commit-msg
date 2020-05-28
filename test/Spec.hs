@@ -12,6 +12,11 @@ spec = describe "commit-msg" $ do
           in  extendCommitMessage param originalMessage
                   `shouldBe` originalMessage
 
+    it "returns original message if a commit source is provided"
+        $ let param = Param (Config ["ryuichi"] []) (Just "message")
+          in  extendCommitMessage param originalMessage
+                  `shouldBe` originalMessage
+
     it "adds author's name"
         $ let param = Param (Config ["ryuichi"] []) Nothing
           in  extendCommitMessage param originalMessage
