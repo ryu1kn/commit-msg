@@ -30,8 +30,8 @@ authors:
   - john
   # - bill      # Bill is not my pair mate today
 task_ids:
-  - \#24
-  # - ci
+  - 24
+  # - docs
 ```
 
 To test this command, invoke this with following arguments.
