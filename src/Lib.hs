@@ -15,8 +15,5 @@ extendCommitMessage param msg = case commit_source param of
 prepopulated :: Config -> String
 prepopulated = (++) <$> (groupValue . authors) <*> (groupValue . task_ids)
 
-groupValue :: Maybe [String] -> String
-groupValue = maybe "" groupedValue_
-    where
-        groupedValue_ :: [String] -> String
-        groupedValue_ xs = if length xs > 0 then "[" ++ (intercalate "," xs) ++ "]" else ""
+groupValue :: [String] -> String
+groupValue xs = if length xs > 0 then "[" ++ (intercalate "," xs) ++ "]" else ""

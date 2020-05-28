@@ -25,6 +25,10 @@ library:
   source-dirs: src
   dependencies:
   - yaml
+  - aeson
+  - vector
+  - text
+  - scientific
 
 executables:
   commit-msg-exe:
