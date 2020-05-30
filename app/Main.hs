@@ -17,7 +17,7 @@ main = do
            (flip Param commitSource <$> config)
 
 oneOrTwo :: [a] -> (a, Maybe a)
-oneOrTwo (x1      : []) = (x1, Nothing)
+oneOrTwo [x1] = (x1, Nothing)
 oneOrTwo (x1 : x2 : _ ) = (x1, Just x2)
 
 editMessage :: String -> Param -> String

@@ -10,7 +10,7 @@ extendCommitMessage :: Param -> String -> String
 extendCommitMessage param msg = case commitSource param of
     Nothing ->
         let header    = prepopulated $ config param
-            separator = if length header > 0 then "\n" else ""
+            separator = if not (null header) then "\n" else ""
         in  header ++ separator ++ msg
     Just _ -> msg
 
@@ -19,4 +19,4 @@ prepopulated = (++) <$> (groupValue . authors) <*> (groupValue . taskIds)
 
 groupValue :: [String] -> String
 groupValue xs =
-    if length xs > 0 then "[" ++ (intercalate "," xs) ++ "]" else ""
+    if not (null xs) then "[" ++ intercalate "," xs ++ "]" else ""

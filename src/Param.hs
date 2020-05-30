@@ -28,7 +28,7 @@ instance FromJSON Config where
 
 parseTaskIds :: Value -> Parser [String]
 parseTaskIds =
-    withArray "array of task IDs" (\arr -> mapM parseTaskId (V.toList arr))
+    withArray "array of task IDs" (mapM parseTaskId . V.toList)
 
 parseTaskId :: Value -> Parser String
 parseTaskId (String s) = return (T.unpack s)
